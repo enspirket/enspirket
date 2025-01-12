@@ -2,6 +2,8 @@ DROP DATABASE IF EXISTS enspirket;
 
 CREATE DATABASE IF NOT EXISTS enspirket;
 
+-- just to test the push
+
 use enspirket;
 
 CREATE TABLE IF NOT EXISTS customers(
