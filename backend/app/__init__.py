@@ -13,7 +13,7 @@ def get_db_connection():
         host='localhost',        # your MySQL host
         user='root',             # your MySQL username
         password='m@c0smy5ql',     # your MySQL password
-        database='enspirket',     # your MySQL database name
+        database='test',     # your MySQL database name
         cursorclass=pymysql.cursors.DictCursor  # Return results as dictionaries
     )
     return connection
@@ -30,8 +30,12 @@ def create_app():
     from . import menu
     from . import auth
     from . import cart
+    from . import time
+    from . import checkout
     app.register_blueprint(menu.bp)
     app.register_blueprint(auth.bp)
     app.register_blueprint(cart.bp)
+    app.register_blueprint(time.bp)
+    app.register_blueprint(checkout.bp)
 
     return app

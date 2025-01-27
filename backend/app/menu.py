@@ -12,10 +12,23 @@ bp = Blueprint('menu', __name__)
 def menu_API():
     conn = get_db_connection()
     cursor = conn.cursor()
-    cursor.execute('''(select * from drinks join price on drinks.drink_price_id = price.price_id)
-                     union (select * from combos join price on combos.combo_price_id = price.price_id) 
-                     union (select * from snacks join price on snacks.snack_price_id = price.price_id)''')
+    cursor.execute('''(SELECT *
+                        FROM product
+                        JOIN price ON product.price_id = price.price_id)''')
     db = cursor.fetchall()
     conn.close()
     
     return jsonify(db)
+
+# @bp.route('/api/menu_item')
+# def menu_item_API():
+#     conn = get_db_connection()
+#     cursor = conn.cursor()
+#     cursor.execute('''(SELECT *
+#                         FROM product
+#                         JOIN price ON product.price_id = price.price_id
+#                         WHERE product.product_id = %s)''')
+#     db = cursor.fetchall()
+#     conn.close()
+    
+#     return jsonify(db)

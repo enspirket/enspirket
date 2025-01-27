@@ -6,4 +6,4 @@ class Config:
     DATABASE_HOST = 'localhost'
     DATABASE_USER = 'root'
     DATABASE_PASSWORD = 'm@c0smy5ql'
-    DATABASE_NAME = 'enspirket'
+    DATABASE_NAME = 'test'
